@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Application/Application.csproj" />
+  <Project Path="Common.Application/Common.Application.csproj" />
+  <Project Path="Common.Domain/Common.Domain.csproj" />
+  <Project Path="Common.Query/Common.Query.csproj" />
+  <Project Path="Domain/Domain.csproj" />
+  <Project Path="Infrastructure/Infrastructure.csproj" />
+</Solution>
