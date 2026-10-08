@@ -20,9 +20,9 @@ public class UserDomainService : IUserDomainService
         return _repository.Exists(r => r.Email == email);
     }
 
-    public bool PhoneNumberIsExist(string phoneNumber)
+    public bool IsPhoneNumberExist(string phoneNumber)
     {
         return _repository.Exists(r => r.PhoneNumber == phoneNumber);
-
     }
+
 }

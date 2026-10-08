@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Text;
-using Common.Domain;
+﻿using Common.Domain;
 using Common.Domain.Exceptions;
+using Domain.PostAgg;
 using Domain.UserAgg.Enums;
 using Domain.UserAgg.Services;
 
@@ -11,6 +8,17 @@ namespace Domain.UserAgg;
 
 public class User : AggregateRoot
 {
+    public string Name { get; private set; }
+    public string Family { get; private set; }
+    public string PhoneNumber { get; private set; }
+    public string Email { get; private set; }
+    public string Password { get; private set; }
+    public string AvatarName { get; private set; }
+    public bool IsActive { get; private set; }
+
+    public Gender Gender { get; private set; }
+    public List<UserRole> Roles { get; }
+    public List<UserToken> Tokens { get; }
     private User()
     {
 
@@ -29,21 +37,10 @@ public class User : AggregateRoot
         AvatarName = "avatar.png";
         IsActive = true;
         Roles = new();
-
         Tokens = new();
     }
 
-    public string Name { get; private set; }
-    public string Family { get; private set; }
-    public string PhoneNumber { get; private set; }
-    public string Email { get; private set; }
-    public string Password { get; private set; }
-    public string AvatarName { get; set; }
-    public bool IsActive { get; set; }
-
-    public Gender Gender { get; private set; }
-    public List<UserRole> Roles { get; }
-    public List<UserToken> Tokens { get; }
+   
 
     public void Edit(string name, string family, string phoneNumber, string email,
         Gender gender, IUserDomainService userDomainService)

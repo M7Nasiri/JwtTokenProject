@@ -1,8 +1,11 @@
 <Solution>
   <Project Path="Application/Application.csproj" />
   <Project Path="Common.Application/Common.Application.csproj" />
+  <Project Path="Common.AspNetCore/Common.AspNetCore.csproj" Id="4c2589db-61da-48f9-8415-cc547275d486" />
   <Project Path="Common.Domain/Common.Domain.csproj" />
   <Project Path="Common.Query/Common.Query.csproj" />
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Infrastructure/Infrastructure.csproj" />
+  <Project Path="MyApi/MyApi.csproj" Id="87647d5a-a75b-4278-a822-6608f34d53b1" />
+  <Project Path="Query/Query.csproj" Id="ce5c0a0c-d0b7-43b7-8669-50cdb8aefd06" />
 </Solution>

@@ -22,7 +22,7 @@ public class CreateRoleCommandHandler : IBaseCommandHandler<CreateRoleCommand>
             permissions.Add(new RolePermission(f));
         });
         var role = new Role(request.Title, permissions);
-         _repository.Create(role);
+         _repository.Add(role);
         await _repository.Save();
 
         return OperationResult.Success();

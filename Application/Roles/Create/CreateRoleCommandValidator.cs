@@ -1,4 +1,5 @@
-﻿using Common.Application.Validation;
+﻿using Application.Posts.Create;
+using Common.Application.Validation;
 using FluentValidation;
 
 namespace Shop.Application.Roles.Create;

@@ -1,7 +1,7 @@
 ﻿using Common.Application;
 using Common.Application.SecurityUtil;
 using Domain.UserAgg.Repository;
-using Shop.Domain.UserAgg.Repository;
+
 
 namespace Application.Users.ChangePassword;
 

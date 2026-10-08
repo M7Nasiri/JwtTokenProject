@@ -1,4 +1,4 @@
-﻿using Common.Application.Validation.FluentValidations;
+﻿using Common.Application.FluentValidations;
 using FluentValidation;
 
 namespace Application.Users.Edit;

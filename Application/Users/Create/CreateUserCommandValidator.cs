@@ -1,4 +1,5 @@
-﻿using Common.Application.Validation;
+﻿using Common.Application.FluentValidations;
+using Common.Application.Validation;
 using FluentValidation;
 
 namespace Application.Users.Create;
