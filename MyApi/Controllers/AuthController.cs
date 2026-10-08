@@ -10,9 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using MyApi.Infrastructure.JwtUtil;
 using MyApi.ViewModels.Auth;
 using Query.Users.DTOs;
+using Shop.Api.ViewModels.Auth;
+using Shop.Presentation.Facade.Users;
+using UAParser;
 
 
-namespace Shop.Api.Controllers;
+namespace MyApi.Controllers;
 
 public class AuthController : ApiController
 {
@@ -53,7 +56,7 @@ public class AuthController : ApiController
     [HttpPost("register")]
     public async Task<ApiResult> Register(RegisterViewModel register)
     {
-        var command = new RegisterUserCommand(new PhoneNumber(register.PhoneNumber), register.Password);
+        var command = new RegisterUserCommand(register.PhoneNumber, register.Password);
         var result = await _userFacade.RegisterUser(command);
         return CommandResult(result);
     }

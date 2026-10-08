@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Shop.Api.Infrastructure.JwtUtil;
 
 namespace MyApi.Infrastructure.JwtUtil
 {
@@ -18,7 +19,7 @@ namespace MyApi.Infrastructure.JwtUtil
                 option.TokenValidationParameters = new TokenValidationParameters()
                 {
                     IssuerSigningKey =
-                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:SignInKey"])),
+                        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:Key"])),
                     ValidIssuer = configuration["JwtConfig:Issuer"],
                     ValidAudience = configuration["JwtConfig:Audience"],
                     ValidateLifetime = true,

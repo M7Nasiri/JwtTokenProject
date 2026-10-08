@@ -1,15 +1,16 @@
 ﻿using Common.Query;
+using Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Shop.Infrastructure.Persistent.Ef;
+
 using Shop.Query.Roles.DTOs;
 
 namespace Shop.Query.Roles.GetList;
 
 public class GetRoleListQueryHandler : IQueryHandler<GetRoleListQuery, List<RoleDto>>
 {
-    private readonly ShopContext _context;
+    private readonly DbCtx _context;
 
-    public GetRoleListQueryHandler(ShopContext context)
+    public GetRoleListQueryHandler(DbCtx context)
     {
         _context = context;
     }

@@ -1,13 +1,16 @@
+using Common.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 using MyApi;
 using MyApi.Infrastructure.JwtUtil;
+using Presentation.Facade;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddOpenApi();
+builder.Services.InitFacade();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.InitConfig(connectionString);
@@ -23,7 +26,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

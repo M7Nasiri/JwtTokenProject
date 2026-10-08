@@ -1,15 +1,15 @@
 ﻿using Common.Query;
+using Infrastructure;
 using Microsoft.EntityFrameworkCore;
-using Shop.Infrastructure.Persistent.Ef;
 using Shop.Query.Roles.DTOs;
 
 namespace Shop.Query.Roles.GetById;
 
 public class GetRoleByIdQueryHandler : IQueryHandler<GetRoleByIdQuery, RoleDto?>
 {
-    private readonly ShopContext _context;
+    private readonly DbCtx _context;
 
-    public GetRoleByIdQueryHandler(ShopContext context)
+    public GetRoleByIdQueryHandler(DbCtx context)
     {
         _context = context;
     }

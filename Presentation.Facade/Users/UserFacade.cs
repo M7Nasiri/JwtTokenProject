@@ -19,7 +19,7 @@ using Query.Users.UserTokens.GetByRefreshToken;
 
 namespace Shop.Presentation.Facade.Users;
 
-internal class UserFacade : IUserFacade
+public class UserFacade : IUserFacade
 {
     private readonly IMediator _mediator;
     private IDistributedCache _cache;

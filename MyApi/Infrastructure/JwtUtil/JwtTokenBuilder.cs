@@ -17,14 +17,14 @@ namespace MyApi.Infrastructure.JwtUtil
                 new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
                 new Claim(ClaimTypes.Role,string.Join("-",roles))
             };
-            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:SignInKey"]));
+            var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtConfig:Key"]));
             var credential = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: configuration["JwtConfig:Issuer"],
                 audience: configuration["JwtConfig:Audience"],
                 claims: claims,
-                expires: new DateTime(0,0,0,0,Int32.Parse(configuration["JwtConfig:AccessTokenMinutes"]),0),
+                expires:  DateTime.Now.AddMinutes(Int32.Parse(configuration["JwtConfig:AccessTokenMinutes"])),
                 signingCredentials: credential);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
