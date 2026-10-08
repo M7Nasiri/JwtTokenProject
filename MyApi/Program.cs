@@ -1,4 +1,5 @@
 using MyApi;
+using MyApi.Infrastructure.JwtUtil;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,8 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.InitConfig(connectionString);
+
+builder.Services.AddJwtAuthentication(builder.Configuration);
 
 var app = builder.Build();
 

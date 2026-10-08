@@ -1,13 +1,7 @@
 ﻿using Common.Query;
 using Infrastructure;
-using Query.Users.DTOs;
-using Query.Users.GetById;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Query.Posts.DTOs;
-using Query.Users;
 
 namespace Query.Posts.GetById;
 public class GetPostByIdQueryHandler : IQueryHandler<GetPostrByIdQuery, PostDto?>

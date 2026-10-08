@@ -7,5 +7,6 @@
   <Project Path="Domain/Domain.csproj" />
   <Project Path="Infrastructure/Infrastructure.csproj" />
   <Project Path="MyApi/MyApi.csproj" Id="87647d5a-a75b-4278-a822-6608f34d53b1" />
+  <Project Path="Presentation.Facade/Presentation.Facade.csproj" Id="96685603-75de-4f9d-b64f-bd5c5ff75478" />
   <Project Path="Query/Query.csproj" Id="ce5c0a0c-d0b7-43b7-8669-50cdb8aefd06" />
 </Solution>
