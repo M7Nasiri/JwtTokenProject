@@ -7,5 +7,6 @@ public enum Permission
 {
     AdminPanel,
     UserPanel,
-    ChangeUserPassword
+    ChangeUserPassword,
+    PostManagement
 }

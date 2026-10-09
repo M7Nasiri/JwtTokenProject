@@ -30,9 +30,9 @@ public class PostFilterData : BaseDto
 
 public class PostFilterParams : BaseFilterParam
 {
-    public long Id { get; set; }
+    public long? Id { get; set; }
     public string Title { get; set; }
-    public string Text { get; set; }
+    public string? Text { get; set; }
     public string? AuthorName { get; set; }
 
 }

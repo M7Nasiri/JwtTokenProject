@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Presentation.Facade.Posts;
 using Query.Users.GetByFilter;
+using Shop.Api.Infrastructure.JwtUtil;
 using Shop.Infrastructure.Persistent.Dapper;
 using Shop.Presentation.Facade.Roles;
 using Shop.Presentation.Facade.Users;
@@ -43,7 +44,7 @@ public static class ServiceRegistration
                 });
             });
 
-       
+        services.AddScoped<CustomJwtValidation>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IPostRepository, PostRepository>();
         services.AddScoped<IRoleRepository, RoleRepository>();
