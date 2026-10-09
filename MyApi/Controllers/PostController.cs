@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using MyApi.DTOs.Posts;
 using Presentation.Facade.Posts;
 using Query.Posts.DTOs;
 using Shop.Api.Infrastructure.Security;
@@ -12,6 +13,7 @@ using Shop.Presentation.Facade.Users;
 
 namespace MyApi.Controllers
 {
+    [Authorize]
     [PermissionChecker(Permission.PostManagement)]
     public class PostController : ApiController
     {
@@ -38,14 +40,18 @@ namespace MyApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ApiResult> CreatePost([FromBody] CreatePostCommand command)
+        public async Task<ApiResult> CreatePost([FromBody] CreatePostDto dto)
         {
+            var userId = User.GetUserId();
+            var command = new CreatePostCommand(userId, dto.Title, dto.Text);
             var result = await _postFacade.CreatePost(command);
             return CommandResult(result);
         }
         [HttpPut]
-        public async Task<ApiResult> EditPost([FromBody] EditPostCommand command)
+        public async Task<ApiResult> EditPost([FromBody] EditPostDto dto)
         {
+            var userId = User.GetUserId();
+            var command = new EditPostCommand(dto.PostId,userId, dto.Title, dto.Text);
             var result = await _postFacade.EditPost(command);
             return CommandResult(result);
         }

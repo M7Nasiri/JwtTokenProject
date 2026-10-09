@@ -21,6 +21,7 @@ public class AuthController : ApiController
 {
     private readonly IUserFacade _userFacade;
     private readonly IConfiguration _configuration;
+
     public AuthController(IUserFacade userFacade, IConfiguration configuration)
     {
         _userFacade = userFacade;
@@ -113,7 +114,7 @@ public class AuthController : ApiController
         var hashJwt = Sha256Hasher.Hash(token);
         var hashRefreshToken = Sha256Hasher.Hash(refreshToken);
 
-        var tokenResult = await _userFacade.AddToken(new AddUserTokenCommand(user.Id, hashJwt, hashRefreshToken, DateTime.Now.AddDays(7), DateTime.Now.AddDays(8), device));
+        var tokenResult = await _userFacade.AddToken(new AddUserTokenCommand(user.Id, hashJwt, hashRefreshToken, DateTime.Now.AddMinutes(Int32.Parse(_configuration["JwtConfig:AccessTokenMinutes"])), DateTime.Now.AddDays(8), device));
         if (tokenResult.Status != OperationResultStatus.Success)
             return OperationResult<LoginResultDto?>.Error();
 

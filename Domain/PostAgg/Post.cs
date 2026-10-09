@@ -19,9 +19,16 @@ public class Post : AggregateRoot
         WrittenBy = writtenBy;
     }
 
-    public void Edit(string title, string text)
+    public void Edit(long writtenBy,string title, string text)
     {
         Title = title;
         Text = text;
+        WrittenBy = writtenBy;
+
+    }
+
+    public void IncreaseViewCount(int viewCount)
+    {
+        ViewCount = viewCount;
     }
 }

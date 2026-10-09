@@ -19,7 +19,7 @@ public class EditPostCommandHandler : IBaseCommandHandler<EditPostCommand>
     public async Task<OperationResult> Handle(EditPostCommand request, CancellationToken cancellationToken)
     {
         var post = await _repository.GetTracking(request.Id);
-        post.Edit(request.Title,request.Text);
+        post.Edit(request.UserId,request.Title,request.Text);
         await _repository.Save();
 
         return OperationResult.Success();
